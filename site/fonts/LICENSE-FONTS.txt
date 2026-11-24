@@ -1,0 +1,16 @@
+AROGYM self-hosted webfonts (free licenses; not for redistribution as font software).
+
+Clash Display (headings)
+  Source: Fontshare / Indian Type Foundry (https://www.fontshare.com/fonts/clash-display)
+  License: Fontshare Free Fonts License — free for personal and commercial use,
+  including self-hosted webfonts on this site. The font files may not be sold
+  or redistributed as standalone font software.
+  https://www.fontshare.com/licenses
+
+Manrope (body)
+  Designer: Mikhail Sharanda. SIL Open Font License 1.1.
+  https://fonts.google.com/specimen/Manrope
+
+Noto Sans Telugu (Telugu eyebrow)
+  Google / SIL Open Font License 1.1.
+  https://fonts.google.com/noto/specimen/Noto+Sans+Telugu

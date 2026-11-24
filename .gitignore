@@ -1,0 +1,39 @@
+# Keep this repository text-only.
+# The live site (https://arogym.pages.dev) deploys optimized image and
+# font binaries separately. Do not commit raster images, screenshots,
+# video/audio, binary fonts, or archives.
+# Small SVG marks under site/ are source and stay tracked.
+
+# Raster images and screenshots
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.avif
+*.gif
+screens/
+
+# Video and audio
+*.mp4
+*.mov
+*.webm
+*.mp3
+*.wav
+*.m4a
+*.aac
+
+# Binary fonts (woff/woff2 plus desktop font files)
+*.woff
+*.woff2
+*.ttf
+*.otf
+*.eot
+
+# Archives
+*.tar.gz
+*.tgz
+*.zip
+*.tar
+
+# Versioned binary asset drops
+assets-v*/

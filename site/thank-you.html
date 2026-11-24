@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.replace("no-js","js");</script>
+  <title>Thank you — AROGYM</title>
+  <meta name="description" content="Next steps after enrolling in the AROGYM 30-day challenge — health form, waiver, Zoom, and calendar. AROGYM is a live coaching platform for US Telugu families.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/clash-display-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="wordmark" href="index.html" aria-label="AROGYM home">
+        <img class="wordmark__mark" src="img/mark.svg" width="32" height="32" alt="">
+        <span class="wordmark__name">AROGYM</span>
+      </a>
+      <a class="btn btn--ghost nav__cta" href="index.html">Back to AROGYM</a>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <header class="page-head reveal">
+      <p class="hero__eyebrow te">మన 30 రోజులు</p>
+      <h1>You’re in. Emi parledu — next, the forms.</h1>
+      <p class="section__lead">Thank you for enrolling in the AROGYM 30-day challenge. AROGYM is a live coaching platform for US Telugu professionals and families. Complete these steps so we can send your Zoom link.</p>
+    </header>
+
+    <ol class="next">
+      <li class="reveal">
+        <h2>1. Fill the health form (PAR-Q)</h2>
+        <p>Required before you join a live class. It helps the coaching team know if you should check with a doctor first.</p>
+        <!-- TODO: Tally PAR-Q / health form URL -->
+        <a class="btn btn--primary" href="#" data-config="tallyHealth" data-config-mode="href" data-todo="tally-health">Open the health form</a>
+        <p class="todo-note">TODO: paste the live Tally PAR-Q link in config.js (tallyHealth).</p>
+      </li>
+      <li class="reveal">
+        <h2>2. Sign the waiver</h2>
+        <p>Also required. Take a minute, read it, and submit.</p>
+        <!-- TODO: Tally waiver URL -->
+        <a class="btn btn--primary" href="#" data-config="tallyWaiver" data-config-mode="href" data-todo="tally-waiver">Open the waiver</a>
+        <p class="todo-note">TODO: paste the live Tally waiver link in config.js (tallyWaiver).</p>
+      </li>
+      <li class="reveal">
+        <h2>3. Get Zoom and community details</h2>
+        <p>Once both forms are in, we’ll send the class Zoom link and a short onboarding note — what to set up, when to arrive, how to say hello. WhatsApp or email reminders will follow the same path.</p>
+        <!-- TODO: Zoom onboarding / WhatsApp invite -->
+        <p><!-- TODO: Zoom join details --><a href="#" data-config="zoomInfo" data-config-mode="href" data-todo="zoom-info">Zoom details (coming)</a></p>
+        <p><!-- TODO: WhatsApp community invite --><a href="#" data-config="whatsapp" data-config-mode="href" data-todo="whatsapp">WhatsApp / email community (coming)</a></p>
+        <p class="todo-note">TODO: add Zoom and WhatsApp URLs in config.js (zoomInfo, whatsapp).</p>
+      </li>
+      <li class="reveal">
+        <h2>4. Put the dates on your calendar</h2>
+        <ul class="get-list" style="margin-top:0.75rem">
+          <li>Free taster (optional, if you’re enrolled in time): <span data-config="tasterDateLabel">Saturday, December 19, 2026</span>, <span data-config="tasterTimeLabel">10 AM ET</span>.</li>
+          <li>Challenge starts: <span data-config="challengeStartLabel">Monday, January 4, 2027</span>.</li>
+          <li>Live classes: <span data-config="classDaysLabel">weekdays</span> at <span data-config="classTimeLabel">8 PM ET</span>, for 30 days, with the AROGYM coaching team from Hyderabad.</li>
+          <li>Missed a live class? Recordings will be available so you can catch up.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <p class="price-note reveal" style="margin-bottom:4rem">Questions? <a href="https://www.instagram.com/anish_jakkula" rel="noopener noreferrer">Message Anish on Instagram</a>. Contact email is not set yet. <!-- TODO: contact email --></p>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>AROGYM is a coaching platform for Telugu families — not medical advice, physical therapy, or a medical diet. Complete the health form and waiver, and check with your doctor if you have a condition or you’re unsure. No guaranteed results.</p>
+      <p style="margin-top:0.75rem">© 2026 AROGYM. All rights reserved. · <a href="index.html">Back to AROGYM</a></p>
+    </div>
+  </footer>
+
+  <div class="cta-bar" role="region" aria-label="Health form">
+    <p class="cta-bar__meta"><strong>Next step</strong><br>PAR-Q + waiver</p>
+    <a class="btn btn--primary" href="#" data-config="tallyHealth" data-config-mode="href" data-todo="tally-health">Health form</a>
+  </div>
+
+  <script src="config.js" defer></script>
+</body>
+</html>
