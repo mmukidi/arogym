@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="AROGYM">
+  <rect width="32" height="32" rx="6" fill="#0A0A0B"/>
+  <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="5.25" fill="none" stroke="#E8B44C" stroke-width="1.5"/>
+  <path fill="#E8B44C" d="M16 6.2L23.6 24h-2.55l-1.55-3.7H12.5L10.95 24H8.4L16 6.2zm-2.7 11.4h5.4L16 10.4l-2.7 7.2z"/>
+</svg>
