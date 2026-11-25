@@ -989,7 +989,7 @@
         prompt: "Preferred first step",
         options: [
           { value: "consult", label: "Free 30-min private consult" },
-          { value: "taster", label: "Free Dec 19 live Zoom taster" },
+          { value: "taster", label: "Free Dec 19 live class" },
           { value: "partner", label: "Join with my spouse or a friend" }
         ]
       }
@@ -1045,7 +1045,7 @@
     root.appendChild(list);
 
     var controls = el("div", { class: "fitcheck__controls" });
-    var showBtn = el("button", { type: "button", class: "btn btn--primary", id: "fitcheck-show", text: "See my fit & local times" });
+    var showBtn = el("button", { type: "button", class: "btn btn--primary", id: "fitcheck-show", text: "See my desk-body type" });
     var resetBtn = el("button", { type: "button", class: "picker__back", id: "fitcheck-reset", text: "Reset" });
     var msg = el("p", { class: "fitcheck__msg", id: "fitcheck-msg", "aria-live": "polite" });
     controls.appendChild(showBtn);
@@ -1064,7 +1064,7 @@
 
     function updateProgress(fromButton) {
       var n = answeredCount();
-      progressText.textContent = n === 5 ? "5 of 5 — your fit check is ready" : n + " of 5 answered";
+      progressText.textContent = n === 5 ? "5 of 5 — your result is ready" : n + " of 5 answered";
       barFill.style.width = (n * 20) + "%";
       if (n === 5) {
         msg.textContent = "";
@@ -1103,7 +1103,7 @@
 
       var foodLine = "On food, your coach builds everyday habits around your " + foodName + " home cooking, " + hurdlePhrase + ".";
       if (answers.firstStep === "partner") {
-        foodLine += " Two mats in one living room are welcome for the free Dec 19 taster — ask about spouse/household options on your consult.";
+        foodLine += " Two mats in one living room are welcome at the free Dec 19 class — ask about spouse/household options on your consult.";
       }
       return [moveLine, foodLine];
     }
@@ -1117,7 +1117,7 @@
         all: "goals-review"
       };
       var noteParts = [
-        "Fit Check — Focus: " + optionLabel("friction", answers.friction),
+        "Desk-body quiz — Focus: " + optionLabel("friction", answers.friction),
         "Kitchen hurdle: " + optionLabel("hurdle", answers.hurdle),
         "Preferred first step: " + optionLabel("firstStep", answers.firstStep)
       ];
@@ -1126,8 +1126,8 @@
         foodPref: answers.foodPref,
         goal: goalMap[answers.friction] || "plan-fit",
         note: noteParts.join(" · "),
-        bannerText: "Pre-filled from your Fit Check (" + z.label + " · " + FOOD_PREF_LABEL[answers.foodPref] + "). Pick a date and time below — your form fields are ready.",
-        bannerFormText: "Pre-filled from your Fit Check (" + z.label + " · " + FOOD_PREF_LABEL[answers.foodPref] + ") — review or edit your details below."
+        bannerText: "Pre-filled from your desk-body quiz (" + z.label + " · " + FOOD_PREF_LABEL[answers.foodPref] + "). Pick a date and time below — your form fields are ready.",
+        bannerFormText: "Pre-filled from your desk-body quiz (" + z.label + " · " + FOOD_PREF_LABEL[answers.foodPref] + ") — review or edit your details below."
       };
     }
 
@@ -1145,10 +1145,10 @@
       var z = ZONE_TIMES[answers.usZone];
       var lines = buildTakeaway();
       resultBox.innerHTML = "";
-      resultBox.appendChild(el("p", { class: "fitcheck__result-tag", text: "Your local AROGYM fit snapshot" }));
+      resultBox.appendChild(el("p", { class: "fitcheck__result-tag", text: "Your desk-body type: " + ({desk:"The Desk Sitter",sport:"The Weekend Player",energy:"The Restarter",all:"The All-Rounder"}[answers.friction] || "Desk body") }));
       resultBox.appendChild(el("p", {
         class: "fitcheck__times",
-        text: "Live weeknights: " + z.live + " · Free Dec 19 taster: " + z.taster
+        text: "Live weeknights: " + z.live + " · Free Dec 19 class: " + z.taster
       }));
       resultBox.appendChild(el("p", { class: "fitcheck__takeaway", text: lines[0] }));
       resultBox.appendChild(el("p", { class: "fitcheck__takeaway", text: lines[1] }));
@@ -1159,14 +1159,14 @@
           type: "button",
           class: "btn btn--primary",
           id: "fitcheck-cta-primary",
-          text: "Go to the free Dec 19 taster (" + z.taster + ")"
+          text: "Join the free Dec 19 class (" + z.taster + ")"
         });
-        tasterBtn.addEventListener("click", function () { scrollAndPrefill("taster"); });
+        tasterBtn.addEventListener("click", function () { scrollAndPrefill("free-class"); });
         var consultSecondary = el("button", {
           type: "button",
           class: "btn btn--ghost",
           id: "fitcheck-cta-consult",
-          text: "Pre-fill my free 30-min consult"
+          text: "Send to Anish for my first-week plan"
         });
         consultSecondary.addEventListener("click", function () { scrollAndPrefill("consult"); });
         btnRow.appendChild(tasterBtn);
@@ -1176,23 +1176,23 @@
           type: "button",
           class: "btn btn--primary",
           id: "fitcheck-cta-primary",
-          text: "Pre-fill my free 30-min consult"
+          text: "Send to Anish for my first-week plan"
         });
         consultBtn.addEventListener("click", function () { scrollAndPrefill("consult"); });
         var tasterSecondary = el("button", {
           type: "button",
           class: "btn btn--ghost",
           id: "fitcheck-cta-taster",
-          text: "See the free Dec 19 taster"
+          text: "Join the free Dec 19 class"
         });
-        tasterSecondary.addEventListener("click", function () { scrollAndPrefill("taster"); });
+        tasterSecondary.addEventListener("click", function () { scrollAndPrefill("free-class"); });
         btnRow.appendChild(consultBtn);
         btnRow.appendChild(tasterSecondary);
       }
       resultBox.appendChild(btnRow);
       resultBox.appendChild(el("p", {
         class: "fitcheck__note",
-        text: "General fitness coaching and everyday food habits — not physical therapy, diagnosis, or a medical diet."
+        text: "Book the free call below and Anish will reply with your personal first-week plan, written by him, not a computer."
       }));
       resultBox.hidden = false;
     }
