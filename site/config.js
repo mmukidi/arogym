@@ -29,14 +29,14 @@ window.AROGYM_CONFIG = {
   classTimeLabel: "8 PM ET",
   classLengthLabel: "about 30 minutes",
 
-  // Free taster
+  // Free class (Dec 19)
   tasterDateISO: "2026-12-19",
   tasterDateLabel: "Saturday, December 19, 2026",
   tasterTimeLabel: "10 AM ET",
 
   // Policies
-  refundDays: "3",
-  refundPolicyLabel: "Refunds are available within the first 3 days after enrollment.",
+  classCount: "22", // Jan 4 – Feb 2, 2027 weekdays
+  guaranteeLabel: "Come to 15 classes. If you don’t feel stronger and lighter, we refund every dollar.",
   recordings: true,
   recordingsLabel: "Yes. Classes are recorded, so you can catch up if you miss a live evening.",
 
@@ -49,7 +49,7 @@ window.AROGYM_CONFIG = {
   tallyHealth: "#",
   /* TODO: Tally waiver */
   tallyWaiver: "#",
-  /* TODO: Tally (or other) free-taster registration */
+  /* TODO: Tally (or other) free-class registration */
   tallyTaster: "#",
   /* TODO: optional Calendly URL. When set, the built-in picker is replaced
      with a Calendly inline embed (their widget script loads only then). */
@@ -106,7 +106,27 @@ window.AROGYM_CONFIG = {
     }
   },
 
-  trainerInstagram: "https://www.instagram.com/anish_jakkula"
+  trainerInstagram: "https://www.instagram.com/anish_jakkula",
+
+  // ---- v8 HIDDEN SLOTS ----
+  // Each section stays hidden until its flag is true AND real content is filled in.
+  // Never switch one on with placeholder or invented content.
+  slots: {
+    classVideo: false,        // "Watch one class" — needs a real class clip
+    testimonials: true,       // ON Nov 25: Manu-supplied Google reviews + before/after photos
+    coachCredentials: false,  // Anish's verified certifications + people coached
+    contact: false,           // WhatsApp number + email in the footer
+    couplesPrice: false,      // couples price — until Manu decides
+    foundingWall: false       // founding families wall — real names, with permission
+  },
+  couplesPrice: "",           // e.g. "89" — TODO Manu
+  couplesPriceLabel: "",      // e.g. hero strip / card line — TODO Manu
+  /* TODO: Stripe Payment Link — Couples */
+  stripeCouples: "#",
+  coachCertsLabel: "",        // TODO: verified certifications only
+  coachClientsLabel: "",      // TODO: real number of people coached
+  whatsappChat: "",           // TODO: https://wa.me/<number>
+  whatsappNumberLabel: ""     // TODO: shown text for the WhatsApp link
 };
 
 (function applyConfig() {
@@ -137,6 +157,15 @@ window.AROGYM_CONFIG = {
     }
   });
 
+  // Hidden slots: reveal only when the flag is on
+  const slots = C.slots || {};
+  document.querySelectorAll("[data-slot]").forEach((el) => {
+    el.hidden = slots[el.getAttribute("data-slot")] !== true;
+  });
+  // Keep strict base/alt background alternation whichever slots are on
+  Array.prototype.filter.call(document.querySelectorAll("main > section.section"), (s) => !s.hidden)
+    .forEach((s, i) => s.classList.toggle("section--alt", i % 2 === 1));
+
   // Enrollment / early-bird status in America/New_York (degrades: HTML already has dates)
   try {
     const fmt = new Intl.DateTimeFormat("en-CA", {
@@ -166,8 +195,8 @@ window.AROGYM_CONFIG = {
     });
     document.querySelectorAll("[data-early-bird-state]").forEach((el) => {
       el.textContent = earlyOpen
-        ? "Early bird — through " + C.earlyBirdUntilLabel
-        : "Early bird ended " + C.earlyBirdUntilLabel;
+        ? "Founding price, through " + C.earlyBirdUntilLabel
+        : "Founding price ended " + C.earlyBirdUntilLabel;
     });
   } catch (e) {
     // Leave HTML defaults in place
