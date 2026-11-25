@@ -1,8 +1,5 @@
-# Keep this repository text-only.
-# The live site (https://arogym.pages.dev) deploys optimized image and
-# font binaries separately. Do not commit raster images, screenshots,
-# video/audio, binary fonts, or archives.
-# Small SVG marks under site/ are source and stay tracked.
+# Media stays out of this repository, except the live site under site/.
+# site/ images and webfonts are committed and deployed to Cloudflare Pages.
 
 # Raster images and screenshots
 *.jpg
@@ -12,6 +9,12 @@
 *.avif
 *.gif
 screens/
+!site/**/*.jpg
+!site/**/*.jpeg
+!site/**/*.png
+!site/**/*.webp
+!site/**/*.avif
+!site/**/*.gif
 
 # Video and audio
 *.mp4
@@ -28,6 +31,8 @@ screens/
 *.ttf
 *.otf
 *.eot
+!site/**/*.woff
+!site/**/*.woff2
 
 # Archives
 *.tar.gz

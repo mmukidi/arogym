@@ -163,8 +163,10 @@ window.AROGYM_CONFIG = {
     el.hidden = slots[el.getAttribute("data-slot")] !== true;
   });
   // Keep strict base/alt background alternation whichever slots are on
-  Array.prototype.filter.call(document.querySelectorAll("main > section.section"), (s) => !s.hidden)
-    .forEach((s, i) => s.classList.toggle("section--alt", i % 2 === 1));
+  document.querySelectorAll(".tabpanel").forEach((p) => {
+    Array.prototype.filter.call(p.querySelectorAll(":scope > section.section"), (s) => !s.hidden)
+      .forEach((s, i) => s.classList.toggle("section--alt", i % 2 === 1));
+  });
 
   // Enrollment / early-bird status in America/New_York (degrades: HTML already has dates)
   try {

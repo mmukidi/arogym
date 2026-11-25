@@ -34,11 +34,11 @@ Personalized, culturally relevant fitness and nutrition coaching that adapts to 
 
 ## Repository layout
 
-The blueprint above stays in `docs/`. Alongside it, this repo holds the text source for the marketing site and the research, scripts, and notes that feed it. Raster images, screenshots, video, audio, binary fonts, and archives are excluded by `.gitignore`. The live site at [https://arogym.pages.dev](https://arogym.pages.dev) deploys those optimized image and font binaries separately, so this repository stays text-only. Two tiny SVG marks (`site/favicon.svg`, `site/img/mark.svg`) are source and are tracked.
+The blueprint above stays in `docs/`. Alongside it, this repo holds the marketing site and the research, scripts, and notes that feed it. The live site at [https://arogym.pages.dev](https://arogym.pages.dev) is the `site/` folder, including images and webfonts. Pushes to `main` deploy that folder to the existing Cloudflare Pages project through `.github/workflows/deploy-pages.yml`. Screenshots, video, audio, and archives outside `site/` stay excluded by `.gitignore`.
 
 | Directory | Contents |
 |---|---|
-| [site/](site/) | AROGYM v7 static site source: `index.html`, `thank-you.html`, `styles.css`, `fonts.css`, `config.js`, `consult.js`, Cloudflare `_headers`, `fonts/LICENSE-FONTS.txt`, and the two SVG marks. Image and webfont binaries are not in this folder. |
+| [site/](site/) | AROGYM v9 static site: HTML, CSS, JS, Cloudflare `_headers`, images, and webfonts, deployed to [https://arogym.pages.dev](https://arogym.pages.dev). |
 | [research/](research/) | Working research. `research/site/` has deploy notes, architecture, landing-page copy, name checks, the v4 brief, and the site state/log. Also food-strategy and messaging research, plus `research/scout/` competitor and US Telugu niche research. |
 | [content/](content/) | Brand voice (`brand-voice.md`) and launch batch 1 hooks and Reel scripts (`launch-batch-1.md`). |
 | [growth/](growth/) | Outreach drafts only: community/creator list (`outreach-list.csv`), an empty funnel tracker, launch posts, and top-10 message drafts. |

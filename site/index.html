@@ -37,14 +37,6 @@
         <img class="wordmark__mark" src="img/mark.svg" width="32" height="32" alt="">
         <span class="wordmark__name">AROGYM</span>
       </a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="#is-this-you">Is this you?</a>
-        <a href="#food">Food</a>
-        <a href="#how">How it works</a>
-        <a href="#anish">Anish</a>
-        <a href="#pricing">Price</a>
-        <a href="#faq">FAQ</a>
-      </nav>
       <a class="btn btn--primary nav__cta" href="#how">Free class, Dec 19</a>
     </div>
   </header>
@@ -61,21 +53,40 @@
       </div>
       <div class="hero__shade" aria-hidden="true"></div>
       <div class="hero__content">
-        <p class="hero__eyebrow">Mana arogyam, mana gym.</p>
-        <h1 class="hero__promise">Lose the desk belly. Keep your rice.</h1>
-        <p class="hero__lead">30-minute live Zoom classes in Telugu and English, weeknights at <span data-config="classTimeLabel">8 PM ET</span> (7 CT · 6 MT · 5 PT), with coach Anish. Built for Telugu professionals, moms and families in the US.</p>
+        <p class="hero__eyebrow">Mana arogyam, mana gym. Built for Telugu families in the USA.</p>
+        <h1 class="hero__promise">Sitting all day built the belly. 30 minutes a night takes it back.</h1>
+        <p class="hero__lead">Live coaching in Telugu and English, weeknights at <span data-config="classTimeLabel">8 PM ET</span> (7 CT · 6 MT · 5 PT), plus a diet plan Anish builds around your own Telugu kitchen. Rice and pappu stay.</p>
+        <ul class="chips chips--benefits" aria-label="What you get">
+          <li>Energy past 2 PM</li>
+          <li>Clothes that fit again</li>
+          <li>Keep up with your kids</li>
+        </ul>
+        <p class="hero__restart">Started and stopped before? This time a live room expects you at 8 PM.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#how">Join the free class: Sat, Dec 19</a>
         </div>
         <p class="hero__tertiary">10 AM ET · 9 CT · 8 MT · 7 PT · <a href="#consult">or book a 30-min call with Anish</a></p>
         <ul class="chips">
-          <li>30-day challenge starts Jan 4</li>
-          <li>$<span data-config="earlyBirdPrice">49</span> founding price until Dec 24</li>
+          <li>Holiday photos coming? Start before them.</li>
           <li data-slot="couplesPrice" hidden><span data-config="couplesPriceLabel"></span></li>
         </ul>
       </div>
     </section>
 
+    <nav class="tabs" aria-label="Sections">
+      <div class="tabs__list" role="tablist">
+        <a class="tabs__tab is-active" id="tab-is-this-you" href="#is-this-you" role="tab" aria-controls="panel-is-this-you" aria-selected="true">Is this you</a>
+        <a class="tabs__tab" id="tab-results" href="#results" role="tab" aria-controls="panel-results" aria-selected="false" tabindex="-1">Results</a>
+        <a class="tabs__tab" id="tab-trainers" href="#trainers" role="tab" aria-controls="panel-trainers" aria-selected="false" tabindex="-1">Trainers</a>
+        <a class="tabs__tab" id="tab-food" href="#food" role="tab" aria-controls="panel-food" aria-selected="false" tabindex="-1">Food</a>
+        <a class="tabs__tab" id="tab-how" href="#how" role="tab" aria-controls="panel-how" aria-selected="false" tabindex="-1">How it works</a>
+        <a class="tabs__tab" id="tab-pricing" href="#pricing" role="tab" aria-controls="panel-pricing" aria-selected="false" tabindex="-1">Price</a>
+        <a class="tabs__tab" id="tab-faq" href="#faq" role="tab" aria-controls="panel-faq" aria-selected="false" tabindex="-1">FAQ</a>
+      </div>
+    </nav>
+
+
+    <div class="tabpanel is-active" id="panel-is-this-you" role="tabpanel" aria-labelledby="tab-is-this-you" tabindex="-1">
     <!-- 2 · Is this you? -->
     <section class="section" id="is-this-you">
       <div class="wrap">
@@ -133,7 +144,9 @@
         </div>
       </div>
     </section>
+    </div>
 
+    <div class="tabpanel" id="panel-results" role="tabpanel" aria-labelledby="tab-results" tabindex="-1">
     <!-- 3 · Watch one class (hidden slot: add a real class clip, then set slots.classVideo = true) -->
     <section class="section section--alt" id="watch" data-slot="classVideo" hidden>
       <div class="wrap">
@@ -144,12 +157,12 @@
     </section>
 
     <!-- 4 · Real people, real numbers (slot ON: Manu-supplied proof, Nov 25) -->
-    <section class="section section--alt" id="results" data-slot="testimonials">
+    <section class="section" id="results" data-slot="testimonials">
       <div class="wrap">
         <p class="section__kicker">Real people, real numbers</p>
         <h2 class="section__title">People like you already did it.</h2>
         <div class="slot-body" data-slot-body="testimonials">
-          <div class="proof-photos">
+          <div class="proof-photos proof-photos--results">
             <figure class="proof-photo proof-photo--tagged">
               <span class="proof-tag proof-tag--before" aria-hidden="true">Before</span><span class="proof-tag proof-tag--after" aria-hidden="true">After</span>
               <picture>
@@ -158,6 +171,56 @@
                 <img src="img/proof-kurta.jpg" width="640" height="640" alt="Before and after photos of a woman in a kurta, one of Anish’s in-person clients." loading="lazy" decoding="async">
               </picture>
             </figure>
+            <figure class="proof-photo">
+              <picture>
+                <source type="image/avif" srcset="img/proof-back.avif">
+                <source type="image/webp" srcset="img/proof-back.webp">
+                <img src="img/proof-back.jpg" width="584" height="532" alt="Before and after back view of a man in a gym locker room, one of Anish’s in-person clients." loading="lazy" decoding="async">
+              </picture>
+            </figure>
+          </div>
+          <p class="proof-note">Results from Anish’s in-person clients in Hyderabad. Individual results vary.</p>
+          <a class="proof-link" href="https://www.instagram.com/reel/C2hdXPsRw-4/" rel="noopener noreferrer" target="_blank">
+            <span class="proof-link__tag">Instagram reel · Torque Fitness</span>
+            <span class="proof-link__title">Watch Vaishnavi’s 3-month journey →</span>
+          </a>
+          <!-- HOLD until Manu confirms: ba-kid.jpg (minor), ba-locker-front-unlabeled.jpg -->
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="tabpanel" id="panel-trainers" role="tabpanel" aria-labelledby="tab-trainers" tabindex="-1">
+    <!-- 7 · Trainers -->
+    <section class="section" id="trainers">
+      <span id="anish" class="anchor-alias" aria-hidden="true"></span>
+      <div class="wrap">
+        <p class="section__kicker">Trainers</p>
+        <h2 class="section__title">Mee trainers.</h2>
+        <article class="trainer-card reveal" aria-labelledby="trainer-anish">
+          <div class="trainer-card__head">
+            <figure class="trainer-card__photo">
+              <picture>
+                <source type="image/avif" srcset="img/trainer.avif">
+                <source type="image/webp" srcset="img/trainer.webp">
+                <img src="img/trainer.jpg" width="600" height="800" alt="Coach Anish Jakkula seated on a gym bench, taking a mirror photo." loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <div class="trainer-card__body">
+              <p class="trainer-card__label">Advanced Premier Trainer</p>
+              <h3 class="trainer-card__name" id="trainer-anish">Anish Jakkula</h3>
+              <p class="trainer-card__years"><strong>11 years</strong> coaching in Hyderabad</p>
+              <p>Anish helps busy professionals get strong without a gym. He speaks your language, knows your kitchen, and coaches you live, not through an app. His clients include Torque Fitness members in Hyderabad.</p>
+              <!-- Hidden slot: verified certifications + people coached. Set slots.coachCredentials = true when real. -->
+              <ul class="get-list" data-slot="coachCredentials" hidden>
+                <li data-config="coachCertsLabel"></li>
+                <li data-config="coachClientsLabel"></li>
+              </ul>
+              <p><a href="https://www.instagram.com/anish_jakkula" rel="noopener noreferrer">Instagram @anish_jakkula</a></p>
+            </div>
+          </div>
+          <h4 class="trainer-card__sub">Client results with Anish</h4>
+          <div class="proof-photos proof-photos--two">
             <figure class="proof-photo">
               <picture>
                 <source type="image/avif" srcset="img/proof-vivek.avif">
@@ -174,15 +237,9 @@
               </picture>
               <figcaption>4 months, 13 kg</figcaption>
             </figure>
-            <figure class="proof-photo">
-              <picture>
-                <source type="image/avif" srcset="img/proof-back.avif">
-                <source type="image/webp" srcset="img/proof-back.webp">
-                <img src="img/proof-back.jpg" width="584" height="532" alt="Before and after back view of a man in a gym locker room, one of Anish’s in-person clients." loading="lazy" decoding="async">
-              </picture>
-            </figure>
           </div>
           <p class="proof-note">Results from Anish’s in-person clients in Hyderabad. Individual results vary.</p>
+          <h4 class="trainer-card__sub">What his clients say</h4>
           <div class="proof-quotes">
             <blockquote class="proof-quote">
               <p>“I have been training with Anish for more than three months now... his expertise and passion for fitness was evident. He introduced me to new movements and advanced training where I learnt so much about proper form and techniques. These have not only improved my workouts but also boosted my confidence.”</p>
@@ -201,15 +258,17 @@
               <footer><strong>Chaitanya P.</strong><span>Google review, trained with Anish at Torque Fitness, Hyderabad</span></footer>
             </blockquote>
           </div>
-          <a class="proof-link" href="https://www.instagram.com/reel/C2hdXPsRw-4/" rel="noopener noreferrer" target="_blank">
-            <span class="proof-link__tag">Instagram reel · Torque Fitness</span>
-            <span class="proof-link__title">Watch Vaishnavi’s 3-month journey →</span>
-          </a>
-          <!-- HOLD until Manu confirms: ba-kid.jpg (minor), ba-locker-front-unlabeled.jpg -->
-        </div>
+        </article>
+        <article class="trainer-card trainer-card--soon" aria-label="More trainers coming soon">
+          <p class="trainer-card__label">Coming soon</p>
+          <h3 class="trainer-card__name">More trainers coming soon.</h3>
+          <p>We’re adding more Telugu-speaking coaches. Anish leads the Jan 4 challenge.</p>
+        </article>
       </div>
     </section>
+    </div>
 
+    <div class="tabpanel" id="panel-food" role="tabpanel" aria-labelledby="tab-food" tabindex="-1">
     <!-- 5 · Your food stays -->
     <section class="section" id="food">
       <div class="wrap">
@@ -232,9 +291,11 @@
         </div>
       </div>
     </section>
+    </div>
 
+    <div class="tabpanel" id="panel-how" role="tabpanel" aria-labelledby="tab-how" tabindex="-1">
     <!-- 6 · How it works -->
-    <section class="section section--alt" id="how">
+    <section class="section" id="how">
       <div class="wrap">
         <p class="section__kicker reveal">How it works</p>
         <h2 class="section__title reveal">Ela pani chestundi? 3 steps.</h2>
@@ -261,33 +322,7 @@
       </div>
     </section>
 
-    <!-- 7 · Meet Anish -->
-    <section class="section" id="anish">
-      <div class="wrap">
-        <div class="team-grid">
-          <article class="team-card reveal">
-            <figure class="team-card__photo">
-              <picture>
-                <source type="image/avif" srcset="img/trainer.avif">
-                <source type="image/webp" srcset="img/trainer.webp">
-                <img src="img/trainer.jpg" width="600" height="800" alt="Coach Anish Jakkula seated on a gym bench, taking a mirror photo." loading="lazy" decoding="async">
-              </picture>
-            </figure>
-            <div class="team-card__body">
-              <p class="team-card__role">Meet your coach</p>
-              <h2 class="section__title">Mee coach, Anish.</h2>
-              <p>Anish Jakkula has coached for 11 years in Hyderabad, helping busy professionals get strong without a gym. He speaks your language, knows your kitchen, and coaches you live, not through an app. His clients include Torque Fitness members in Hyderabad.</p>
-              <!-- Hidden slot: verified certifications + people coached. Set slots.coachCredentials = true when real. -->
-              <ul class="get-list" data-slot="coachCredentials" hidden>
-                <li data-config="coachCertsLabel"></li>
-                <li data-config="coachClientsLabel"></li>
-              </ul>
-              <p><a href="https://www.instagram.com/anish_jakkula" rel="noopener noreferrer">Instagram @anish_jakkula</a></p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+
 
     <!-- Consult -->
     <section class="section section--alt" id="consult">
@@ -305,7 +340,9 @@
         </div>
       </div>
     </section>
+    </div>
 
+    <div class="tabpanel" id="panel-pricing" role="tabpanel" aria-labelledby="tab-pricing" tabindex="-1">
     <!-- 8 · Price -->
     <section class="section" id="pricing">
       <div class="wrap">
@@ -345,9 +382,11 @@
         <p class="price-note">Prices in USD, paid through Stripe. Coaching, not medical advice; see the note at the bottom of the page.</p>
       </div>
     </section>
+    </div>
 
+    <div class="tabpanel" id="panel-faq" role="tabpanel" aria-labelledby="tab-faq" tabindex="-1">
     <!-- 9 · FAQ -->
-    <section class="section section--alt" id="faq">
+    <section class="section" id="faq">
       <div class="wrap">
         <p class="section__kicker reveal">FAQ</p>
         <h2 class="section__title reveal">Doubts unnaya?</h2>
@@ -395,9 +434,10 @@
         </details>
       </div>
     </section>
+    </div>
 
     <!-- Closing -->
-    <section class="section" id="start">
+    <section class="section section--alt" id="start">
       <div class="wrap closing reveal">
         <h2 class="section__title">Emi parledu. Start cheddam.</h2>
         <p class="section__lead">Free class Saturday, Dec 19, 10 AM ET. Bring the family.</p>
@@ -444,5 +484,6 @@
 
   <script src="config.js" defer></script>
   <script src="consult.js" defer></script>
+  <script src="tabs.js" defer></script>
 </body>
 </html>
