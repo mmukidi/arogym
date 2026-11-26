@@ -198,7 +198,7 @@
       return d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
     }
     var end = new Date(slot.instant.getTime() + durationMin * 60000);
-    var desc = "This is a request. Anish will confirm your slot within 24 hours by email or WhatsApp.";
+    var desc = "This is a request. Your trainer will confirm your slot within 24 hours by email or WhatsApp.";
     return [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
@@ -210,7 +210,7 @@
       "DTSTAMP:" + stamp(new Date()),
       "DTSTART:" + stamp(slot.instant),
       "DTEND:" + stamp(end),
-      "SUMMARY:AROGYM consult request with Anish",
+      "SUMMARY:AROGYM consult request with your trainer",
       "DESCRIPTION:" + desc,
       "END:VEVENT",
       "END:VCALENDAR",
@@ -329,7 +329,7 @@
     var live = el("p", { class: "picker__live", "aria-live": "polite" });
     var requestNote = el("p", {
       class: "picker__request",
-      text: "These times are requests, not locked bookings. Anish will confirm your slot within 24 hours by email or WhatsApp."
+      text: "These times are requests, not locked bookings. Your trainer will confirm your slot within 24 hours by email or WhatsApp."
     });
 
     var datePanel = el("div", { class: "picker__panel", "data-panel": "date" });
@@ -465,7 +465,7 @@
 
     if (!days.length) {
       dateGroup.hidden = true;
-      setLive("No upcoming request times are open right now. Please check back shortly, or email Anish to find a time.");
+      setLive("No upcoming request times are open right now. Please check back shortly, or email your trainer to find a time.");
     }
 
     dateGroup.addEventListener("keydown", function (e) {
@@ -645,7 +645,7 @@
       form.appendChild(goalWrap);
 
       var noteWrap = el("div", { class: "picker__field" });
-      noteWrap.appendChild(el("label", { for: "consult-note", text: "Anything Anish should know? (optional)" }));
+      noteWrap.appendChild(el("label", { for: "consult-note", text: "Anything your trainer should know? (optional)" }));
       noteWrap.appendChild(el("textarea", {
         id: "consult-note",
         name: "note",
@@ -661,7 +661,7 @@
       form.appendChild(el("button", { type: "submit", class: "btn btn--primary picker__submit", text: "Request this time" }));
       form.appendChild(el("p", {
         class: "picker__fine",
-        text: "Submitting sends a request only. Anish will confirm your slot within 24 hours by email or WhatsApp."
+        text: "Submitting sends a request only. Your trainer will confirm your slot within 24 hours by email or WhatsApp."
       }));
       formPanel.appendChild(form);
       applyPrefillToForm(form);
@@ -673,8 +673,8 @@
       select.addEventListener("change", function () {
         var other = select.value === "other";
         noteWrap.querySelector("label").textContent = other
-          ? "Tell Anish a little more (required)"
-          : "Anything Anish should know? (optional)";
+          ? "Tell your trainer a little more (required)"
+          : "Anything your trainer should know? (optional)";
       });
 
       form.addEventListener("submit", function (e) {
@@ -749,7 +749,7 @@
       if (!tzVal) fail("tz", "Please choose your US time zone.");
       if (!foodVal) fail("food", "Please choose your home-food preference.");
       if (!goalVal) fail("goal", "Please choose what you want from the call.");
-      if (goalVal === "other" && note.length < 2) fail("note", "Please add a short note so Anish knows how to help.");
+      if (goalVal === "other" && note.length < 2) fail("note", "Please add a short note so your trainer knows how to help.");
 
       if (!ok) {
         formLive.textContent = "Please fix the highlighted fields.";
@@ -784,7 +784,7 @@
 
       function finish(mode, extraMsg) {
         renderConfirm(payload, labels, mode, extraMsg);
-        setLive("Request received for " + summaryLine(state.slot, state.day) + ". Anish will confirm your slot within 24 hours by email or WhatsApp.");
+        setLive("Request received for " + summaryLine(state.slot, state.day) + ". Your trainer will confirm your slot within 24 hours by email or WhatsApp.");
         showStep("confirm", confirmPanel.querySelector("h3"));
       }
 
@@ -819,7 +819,7 @@
           } catch (err) { /* leave the confirm-screen mailto link */ }
           finish("mailto", reason);
         } else {
-          finish("copy", reason || "Please copy the details below and send them to Anish by email or WhatsApp.");
+          finish("copy", reason || "Please copy the details below and send them to your trainer by email or WhatsApp.");
         }
       }
 
@@ -838,7 +838,7 @@
           finish("posted");
         }).catch(function () {
           clearTimeout(timer);
-          mailtoFallback("We couldn’t send this automatically. Please copy the details below and send them to Anish by email or WhatsApp.");
+          mailtoFallback("We couldn’t send this automatically. Please copy the details below and send them to your trainer by email or WhatsApp.");
         });
       } else {
         mailtoFallback();
@@ -850,7 +850,7 @@
       confirmPanel.appendChild(el("h3", { class: "picker__heading", text: "Request sent" }));
       confirmPanel.appendChild(el("p", {
         class: "picker__confirm-lead",
-        text: "Anish will confirm your slot within 24 hours by email or WhatsApp."
+        text: "Your trainer will confirm your slot within 24 hours by email or WhatsApp."
       }));
       confirmPanel.appendChild(el("p", { class: "picker__summary", text: summaryLine(state.slot, state.day) }));
       if (localTz !== etTz) {
@@ -1166,7 +1166,7 @@
           type: "button",
           class: "btn btn--ghost",
           id: "fitcheck-cta-consult",
-          text: "Send to Anish for my first-week plan"
+          text: "Send to your trainer for my first-week plan"
         });
         consultSecondary.addEventListener("click", function () { scrollAndPrefill("consult"); });
         btnRow.appendChild(tasterBtn);
@@ -1176,7 +1176,7 @@
           type: "button",
           class: "btn btn--primary",
           id: "fitcheck-cta-primary",
-          text: "Send to Anish for my first-week plan"
+          text: "Send to your trainer for my first-week plan"
         });
         consultBtn.addEventListener("click", function () { scrollAndPrefill("consult"); });
         var tasterSecondary = el("button", {
@@ -1192,7 +1192,7 @@
       resultBox.appendChild(btnRow);
       resultBox.appendChild(el("p", {
         class: "fitcheck__note",
-        text: "Book the free call below and Anish will reply with your personal first-week plan, written by him, not a computer."
+        text: "Book the free call below and your trainer will reply with your personal first-week plan, written by him, not a computer."
       }));
       resultBox.hidden = false;
     }
