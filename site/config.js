@@ -36,7 +36,6 @@ window.AROGYM_CONFIG = {
 
   // Policies
   classCount: "22", // Jan 4 – Feb 2, 2027 weekdays
-  guaranteeLabel: "Come to 3 classes. If you don’t feel stronger and lighter, we refund every dollar.",
   recordings: true,
   recordingsLabel: "Yes. Classes are recorded, so you can catch up if you miss a live evening.",
 
