@@ -36,7 +36,7 @@ window.AROGYM_CONFIG = {
 
   // Policies
   classCount: "22", // Jan 4 – Feb 2, 2027 weekdays
-  guaranteeLabel: "Come to 15 classes. If you don’t feel stronger and lighter, we refund every dollar.",
+  guaranteeLabel: "Come to 3 classes. If you don’t feel stronger and lighter, we refund every dollar.",
   recordings: true,
   recordingsLabel: "Yes. Classes are recorded, so you can catch up if you miss a live evening.",
 
@@ -106,15 +106,13 @@ window.AROGYM_CONFIG = {
     }
   },
 
-  trainerInstagram: "https://www.instagram.com/anish_jakkula",
-
   // ---- v8 HIDDEN SLOTS ----
   // Each section stays hidden until its flag is true AND real content is filled in.
   // Never switch one on with placeholder or invented content.
   slots: {
     classVideo: false,        // "Watch one class" — needs a real class clip
     testimonials: true,       // ON Nov 25: Manu-supplied Google reviews + before/after photos
-    coachCredentials: false,  // Anish's verified certifications + people coached
+    coachCredentials: false,  // the trainer's verified certifications + people coached
     contact: false,           // WhatsApp number + email in the footer
     couplesPrice: false,      // couples price — until Manu decides
     foundingWall: false       // founding families wall — real names, with permission
