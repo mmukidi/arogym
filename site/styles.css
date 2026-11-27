@@ -1879,3 +1879,79 @@ html { scroll-padding-top: 3.5rem; }
 }
 @media (min-width: 1280px) { .hero__content { padding: 4.5rem 0 3.5rem; } }
 @media (min-width: 768px) and (max-width: 1023px) { .hero__content > * { text-shadow: 0 1px 12px rgba(0,0,0,0.85); } .hero__content .chips li { background: rgba(10,10,11,0.7); } }
+
+/* Food gallery — dish cards in #food only */
+.food-gallery {
+  display: flex;
+  gap: var(--space-4);
+  margin: var(--space-6) 0 0;
+  padding: 0 0 var(--space-2);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(232, 180, 76, 0.45) transparent;
+}
+.food-gallery > li {
+  flex: 0 0 min(78%, 17.5rem);
+  scroll-snap-align: start;
+  min-width: 0;
+}
+.food-card {
+  margin: 0;
+  height: 100%;
+  background: var(--bg-card);
+  border: 1px solid rgba(232, 180, 76, 0.28);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.food-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  background: #111;
+}
+.food-card figcaption {
+  padding: 0.7rem 0.85rem 0.85rem;
+  display: grid;
+  gap: 0.25rem;
+}
+.food-card__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.02rem;
+  letter-spacing: -0.015em;
+  word-spacing: 0.04em;
+  line-height: 1.2;
+}
+.food-card__credit {
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.food-card__credit a {
+  color: var(--text-muted);
+  text-decoration-thickness: 1px;
+}
+.food-gallery__note {
+  margin: var(--space-3) 0 0;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  max-width: 40rem;
+}
+@media (min-width: 768px) {
+  .food-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: visible;
+    padding-bottom: 0;
+  }
+  .food-gallery > li { flex: none; }
+}
