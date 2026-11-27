@@ -29,11 +29,6 @@ window.AROGYM_CONFIG = {
   classTimeLabel: "8 PM ET",
   classLengthLabel: "about 30 minutes",
 
-  // Free class (Dec 19)
-  tasterDateISO: "2026-12-19",
-  tasterDateLabel: "Saturday, December 19, 2026",
-  tasterTimeLabel: "10 AM ET",
-
   // Policies
   classCount: "22", // Jan 4 – Feb 2, 2027 weekdays
   recordings: true,
@@ -48,11 +43,10 @@ window.AROGYM_CONFIG = {
   tallyHealth: "#",
   /* TODO: Tally waiver */
   tallyWaiver: "#",
-  /* TODO: Tally (or other) free-class registration */
-  tallyTaster: "#",
-  /* TODO: optional Calendly URL. When set, the built-in picker is replaced
-     with a Calendly inline embed (their widget script loads only then). */
-  calendlyUrl: "",
+  /* Free 30-min consultation. When set, consultation links open this URL in a
+     new tab and the consult section embeds it. When empty, those links stay
+     on #consult and the built-in picker is used. */
+  calendlyUrl: "https://calendly.com/mmukidi/arogym-consultation",
   /* TODO: optional endpoint. When set, the picker POSTs JSON
      {name,email,whatsapp,goal,slotISO,slotET,localTZ,source}. */
   consultSubmit: "",
@@ -143,8 +137,18 @@ window.AROGYM_CONFIG = {
       // Keep '#' CTAs non-live and announced as upcoming
       if (String(val) === "#") {
         el.setAttribute("aria-disabled", "true");
+        if (el.getAttribute("data-config-blank") === "true") {
+          el.removeAttribute("target");
+          el.removeAttribute("rel");
+        }
       } else {
         el.removeAttribute("aria-disabled");
+        if (el.getAttribute("data-config-blank") === "true" && /^https?:/i.test(String(val))) {
+          el.setAttribute("target", "_blank");
+          var rel = el.getAttribute("rel") || "";
+          if (!/\bnoopener\b/.test(rel)) rel = (rel + " noopener noreferrer").trim();
+          el.setAttribute("rel", rel);
+        }
       }
     } else if (mode === "mailto") {
       el.setAttribute("href", "mailto:" + String(val));

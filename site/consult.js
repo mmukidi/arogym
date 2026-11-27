@@ -933,10 +933,10 @@
     if (!root) return;
 
     var ZONE_TIMES = {
-      ET: { label: "Eastern (ET)", live: "8:00 PM ET", taster: "10:00 AM ET" },
-      CT: { label: "Central (CT)", live: "7:00 PM CT", taster: "9:00 AM CT" },
-      MT: { label: "Mountain (MT)", live: "6:00 PM MT", taster: "8:00 AM MT" },
-      PT: { label: "Pacific (PT)", live: "5:00 PM PT", taster: "7:00 AM PT" }
+      ET: { label: "Eastern (ET)", live: "8:00 PM ET" },
+      CT: { label: "Central (CT)", live: "7:00 PM CT" },
+      MT: { label: "Mountain (MT)", live: "6:00 PM MT" },
+      PT: { label: "Pacific (PT)", live: "5:00 PM PT" }
     };
 
     var QUESTIONS = [
@@ -988,8 +988,7 @@
         num: "05",
         prompt: "Preferred first step",
         options: [
-          { value: "consult", label: "Free 30-min private consult" },
-          { value: "taster", label: "Free Dec 19 live class" },
+          { value: "consult", label: "Free 30-min consultation" },
           { value: "partner", label: "Join with my spouse or a friend" }
         ]
       }
@@ -1103,7 +1102,7 @@
 
       var foodLine = "On food, your coach builds everyday habits around your " + foodName + " home cooking, " + hurdlePhrase + ".";
       if (answers.firstStep === "partner") {
-        foodLine += " Two mats in one living room are welcome at the free Dec 19 class — ask about spouse/household options on your consult.";
+        foodLine += " Two mats in one living room work well. Ask your trainer about joining as a household on your free 30-min consultation.";
       }
       return [moveLine, foodLine];
     }
@@ -1141,6 +1140,15 @@
       }
     }
 
+    function openConsult() {
+      var url = String((global.AROGYM_CONFIG && global.AROGYM_CONFIG.calendlyUrl) || "").trim();
+      if (url && url !== "#" && /^https?:/i.test(url)) {
+        window.open(url, "_blank", "noopener,noreferrer");
+        return;
+      }
+      scrollAndPrefill("consult");
+    }
+
     function renderResult() {
       var z = ZONE_TIMES[answers.usZone];
       var lines = buildTakeaway();
@@ -1148,47 +1156,20 @@
       resultBox.appendChild(el("p", { class: "fitcheck__result-tag", text: "Your desk-body type: " + ({desk:"The Desk Sitter",sport:"The Weekend Player",energy:"The Restarter",all:"The All-Rounder"}[answers.friction] || "Desk body") }));
       resultBox.appendChild(el("p", {
         class: "fitcheck__times",
-        text: "Live weeknights: " + z.live + " · Free Dec 19 class: " + z.taster
+        text: "Live weeknights: " + z.live
       }));
       resultBox.appendChild(el("p", { class: "fitcheck__takeaway", text: lines[0] }));
       resultBox.appendChild(el("p", { class: "fitcheck__takeaway", text: lines[1] }));
 
       var btnRow = el("div", { class: "btn-row", style: "margin-top:0.25rem" });
-      if (answers.firstStep === "taster") {
-        var tasterBtn = el("button", {
-          type: "button",
-          class: "btn btn--primary",
-          id: "fitcheck-cta-primary",
-          text: "Join the free Dec 19 class (" + z.taster + ")"
-        });
-        tasterBtn.addEventListener("click", function () { scrollAndPrefill("free-class"); });
-        var consultSecondary = el("button", {
-          type: "button",
-          class: "btn btn--ghost",
-          id: "fitcheck-cta-consult",
-          text: "Send to your trainer for my first-week plan"
-        });
-        consultSecondary.addEventListener("click", function () { scrollAndPrefill("consult"); });
-        btnRow.appendChild(tasterBtn);
-        btnRow.appendChild(consultSecondary);
-      } else {
-        var consultBtn = el("button", {
-          type: "button",
-          class: "btn btn--primary",
-          id: "fitcheck-cta-primary",
-          text: "Send to your trainer for my first-week plan"
-        });
-        consultBtn.addEventListener("click", function () { scrollAndPrefill("consult"); });
-        var tasterSecondary = el("button", {
-          type: "button",
-          class: "btn btn--ghost",
-          id: "fitcheck-cta-taster",
-          text: "Join the free Dec 19 class"
-        });
-        tasterSecondary.addEventListener("click", function () { scrollAndPrefill("free-class"); });
-        btnRow.appendChild(consultBtn);
-        btnRow.appendChild(tasterSecondary);
-      }
+      var consultBtn = el("button", {
+        type: "button",
+        class: "btn btn--primary",
+        id: "fitcheck-cta-primary",
+        text: "Book a free 30-min consultation"
+      });
+      consultBtn.addEventListener("click", openConsult);
+      btnRow.appendChild(consultBtn);
       resultBox.appendChild(btnRow);
       resultBox.appendChild(el("p", {
         class: "fitcheck__note",
