@@ -752,22 +752,6 @@ th {
 .price-card.is-closed .btn { opacity: 0.55; pointer-events: none; }
 .price-note { margin-top: var(--space-5); color: var(--text-dim); font-size: 0.9375rem; }
 
-/* Taster */
-.taster {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: var(--space-5);
-  display: grid;
-  gap: var(--space-5);
-}
-.taster__when {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: -0.02em;
-}
-
 /* FAQ */
 .faq { display: grid; gap: 0; border-top: 1px solid var(--line); }
 .faq details {
@@ -1704,7 +1688,6 @@ th {
   .schedule { grid-template-columns: 1.1fr 0.9fr; }
   .schedule td:first-child { white-space: nowrap; padding-right: 1.5rem; }
   .price-grid { grid-template-columns: 1fr 1fr; gap: var(--space-5); }
-  .taster { grid-template-columns: 1.3fr 0.7fr; align-items: center; padding: var(--space-6); }
   .consult {
     grid-template-columns: 1fr;
     padding: var(--space-6);
@@ -1784,8 +1767,6 @@ th {
 #is-this-you .pref-grid { margin-top: var(--space-6); }
 #is-this-you .get-list { margin: var(--space-4) 0; }
 #fit-check { margin-top: var(--space-7, 4rem); scroll-margin-top: 5rem; }
-#free-class { scroll-margin-top: 5rem; }
-#free-class .btn { margin-top: var(--space-3, 0.75rem); }
 .chips--static { margin-top: var(--space-4); }
 #trainers .team-grid { grid-template-columns: 1fr; max-width: 60rem; }
 #trainers .team-card .section__title { margin: 0.25rem 0 0.75rem; }
