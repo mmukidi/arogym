@@ -1911,16 +1911,6 @@ html { scroll-padding-top: 3.5rem; }
   word-spacing: 0.04em;
   line-height: 1.2;
 }
-.food-card__credit {
-  color: var(--text-dim);
-  font-size: 0.72rem;
-  line-height: 1.4;
-  font-weight: 500;
-}
-.food-card__credit a {
-  color: var(--text-muted);
-  text-decoration-thickness: 1px;
-}
 .food-gallery__note {
   margin: var(--space-3) 0 0;
   color: var(--text-dim);
@@ -1930,9 +1920,12 @@ html { scroll-padding-top: 3.5rem; }
 @media (min-width: 768px) {
   .food-gallery {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     overflow: visible;
     padding-bottom: 0;
   }
   .food-gallery > li { flex: none; }
+}
+@media (min-width: 1024px) {
+  .food-gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
